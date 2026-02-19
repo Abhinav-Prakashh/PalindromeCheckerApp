@@ -14,9 +14,9 @@ public class PalindromeCheckerApp {
             reversed = reversed + word.charAt(i);
         }
         if (word.equals(reversed)) {
-            System.out.println("Is it a Palindrome? True");
+            System.out.println("Is it a Palindrome? true");
         } else {
-            System.out.println("Is it a Palindrome? False");
+            System.out.println("Is it a Palindrome? false");
         }
     }
 }

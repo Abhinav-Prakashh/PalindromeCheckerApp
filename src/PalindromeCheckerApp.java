@@ -5,23 +5,24 @@ public class PalindromeCheckerApp {
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version : 1.0");
         System.out.println("System initialized successfully");
-        String input = "madam";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input : ");
+        String input = scanner.nextLine();
 
-        boolean isPalindrome = check(input, 0, input.length() - 1);
+        boolean result = isPalindrome(input);
 
-        System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Is Palindrome? : " + result);
+
+        scanner.close();
     }
-    private static boolean check(String s, int start, int end) {
-
-        if (start >= end) {
-            return true;
+    public static boolean isPalindrome(String input) {
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+        for (int i = 0; i < normalized.length() / 2; i++) {
+            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
+                return false;
+            }
         }
 
-        if (s.charAt(start) != s.charAt(end)) {
-            return false;
-        }
-
-        return check(s, start + 1, end - 1);
+        return true;
     }
 }
